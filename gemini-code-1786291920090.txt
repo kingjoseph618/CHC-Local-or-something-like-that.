@@ -1,0 +1,31 @@
+# Kopyahin at i-run sa PowerShell
+$Root = "$env:USERPROFILE\Desktop\JAMIE_AI_INTAKE_001"
+$Zip  = "$env:USERPROFILE\Desktop\JAMIE_AI_INTAKE_001.zip"
+
+New-Item -ItemType Directory -Force -Path $Root | Out-Null
+
+Get-ChildItem -Path $Root -Recurse -File -ErrorAction SilentlyContinue |
+    Select-Object FullName, Name, Extension, Length, CreationTime, LastWriteTime |
+    Export-Csv "$Root\FILE_MANIFEST.csv" -NoTypeInformation -Encoding UTF8
+
+@"
+JAMIE AI INTAKE
+Generated: $(Get-Date)
+
+Layunin:
+I-package ang mga file para sa inspeksyon.
+
+Mga Alituntunin:
+- Walang buburahing file
+- Walang ililipat na file
+- Walang i-e-execute na file
+- Walang isasamang password/API key/token
+"@ | Out-File "$Root\README.txt" -Encoding UTF8
+
+if (Test-Path $Zip) {
+    Remove-Item $Zip -Force
+}
+
+Compress-Archive -Path "$Root\*" -DestinationPath $Zip
+
+Write-Host "MABUTI! ANG INTAKE PACKAGE AY NAGAWA NA DITO: $Zip" -ForegroundColor Cyan

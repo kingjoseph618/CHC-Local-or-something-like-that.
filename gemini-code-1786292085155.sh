@@ -1,0 +1,1 @@
+gcloud beta run domain-mappings create --service chc-website --domain chchelp.org --region us-central1
