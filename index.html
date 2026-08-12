@@ -1,0 +1,857 @@
+`<!DOCTYPE html>`
+
+`<html lang="en">`
+
+`<head>`
+
+`<meta charset="UTF-8">`
+
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+`<title>J.A.R.V.I.S. // Music Therapy Interactive System</title>`
+
+`<link rel="preconnect" href="https://fonts.googleapis.com">`
+
+`<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`
+
+`<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">`
+
+`<style>`
+
+`:root {`
+
+`--bg-dark: #030712;`
+
+`--bg-panel: rgba(8, 20, 44, 0.65);`
+
+`--neon-blue: #00f0ff;`
+
+`--neon-cyan: #00e5ff;`
+
+`--deep-blue: #0066ff;`
+
+`--glow-blue: rgba(0, 240, 255, 0.4);`
+
+`--border-glow: rgba(0, 240, 255, 0.3);`
+
+`--text-main: #d1f7ff;`
+
+`--font-head: 'Orbitron', sans-serif;`
+
+`--font-sub: 'Rajdhani', sans-serif;`
+
+`--font-code: 'Share Tech Mono', monospace;`
+
+`}`
+
+
+
+
+`* {`
+
+`box-sizing: border-box;`
+
+`margin: 0;`
+
+`padding: 0;`
+
+`}`
+
+
+
+
+`body {`
+
+`background-color: var(--bg-dark);`
+
+`color: var(--text-main);`
+
+`font-family: var(--font-sub);`
+
+`min-height: 100vh;`
+
+`overflow-x: hidden;`
+
+`background-image:`
+
+`radial-gradient(circle at 50% 20%, rgba(0, 102, 255, 0.15) 0%, transparent 60%),`
+
+`linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),`
+
+`linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);`
+
+`background-size: 100% 100%, 40px 40px, 40px 40px;`
+
+`}`
+
+
+
+
+`/* Stark Arc Reactor Background Animation */`
+
+`.arc-reactor-bg {`
+
+`position: fixed;`
+
+`top: 50%;`
+
+`left: 50%;`
+
+`transform: translate(-50%, -50%);`
+
+`width: 700px;`
+
+`height: 700px;`
+
+`border: 1px dashed var(--border-glow);`
+
+`border-radius: 50%;`
+
+`pointer-events: none;`
+
+`z-index: 0;`
+
+`animation: rotateArc 40s linear infinite;`
+
+`opacity: 0.25;`
+
+`}`
+
+`.arc-reactor-bg::before {`
+
+`content: '';`
+
+`position: absolute;`
+
+`top: 10%; left: 10%; right: 10%; bottom: 10%;`
+
+`border: 2px solid var(--neon-blue);`
+
+`border-radius: 50%;`
+
+`box-shadow: 0 0 30px var(--neon-blue);`
+
+`animation: pulseGlow 4s ease-in-out infinite alternate;`
+
+`}`
+
+
+
+
+`@keyframes rotateArc {`
+
+`from { transform: translate(-50%, -50%) rotate(0deg); }`
+
+`to { transform: translate(-50%, -50%) rotate(360deg); }`
+
+`}`
+
+`@keyframes pulseGlow {`
+
+`0% { opacity: 0.3; transform: scale(0.98); }`
+
+`100% { opacity: 0.8; transform: scale(1.02); }`
+
+`}`
+
+
+
+
+`/* Header Layout */`
+
+`header {`
+
+`position: relative;`
+
+`z-index: 10;`
+
+`padding: 2rem;`
+
+`text-align: center;`
+
+`border-bottom: 1px solid var(--border-glow);`
+
+`background: linear-gradient(180deg, rgba(3, 11, 26, 0.9), rgba(3, 7, 18, 0.6));`
+
+`backdrop-filter: blur(10px);`
+
+`}`
+
+
+
+
+`.hud-status-bar {`
+
+`display: flex;`
+
+`justify-content: space-between;`
+
+`align-items: center;`
+
+`font-family: var(--font-code);`
+
+`font-size: 0.85rem;`
+
+`color: var(--neon-blue);`
+
+`margin-bottom: 1rem;`
+
+`letter-spacing: 2px;`
+
+`}`
+
+
+
+
+`.system-title {`
+
+`font-family: var(--font-head);`
+
+`font-size: 2.5rem;`
+
+`font-weight: 900;`
+
+`text-transform: uppercase;`
+
+`letter-spacing: 4px;`
+
+`color: #fff;`
+
+`text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--deep-blue);`
+
+`}`
+
+
+
+
+`.system-subtitle {`
+
+`font-family: var(--font-sub);`
+
+`font-size: 1.2rem;`
+
+`color: var(--neon-cyan);`
+
+`letter-spacing: 3px;`
+
+`margin-top: 0.5rem;`
+
+`}`
+
+
+
+
+`/* Container & HUD Cards */`
+
+`.container {`
+
+`position: relative;`
+
+`z-index: 10;`
+
+`max-width: 1300px;`
+
+`margin: 2rem auto;`
+
+`padding: 0 1.5rem;`
+
+`display: grid;`
+
+`grid-template-columns: 1fr 1fr;`
+
+`gap: 2rem;`
+
+`}`
+
+
+
+
+`@media (max-width: 900px) {`
+
+`.container { grid-template-columns: 1fr; }`
+
+`}`
+
+
+
+
+`.hud-panel {`
+
+`background: var(--bg-panel);`
+
+`border: 1px solid var(--border-glow);`
+
+`border-radius: 8px;`
+
+`padding: 1.5rem;`
+
+`position: relative;`
+
+`backdrop-filter: blur(12px);`
+
+`box-shadow: 0 0 25px rgba(0, 240, 255, 0.08);`
+
+`overflow: hidden;`
+
+`}`
+
+
+
+
+`/* Stark HUD Corner Brackets */`
+
+`.hud-panel::before, .hud-panel::after {`
+
+`content: '';`
+
+`position: absolute;`
+
+`width: 12px;`
+
+`height: 12px;`
+
+`border-color: var(--neon-blue);`
+
+`border-style: solid;`
+
+`}`
+
+`.hud-panel::before { top: 0; left: 0; border-width: 2px 0 0 2px; }`
+
+`.hud-panel::after { bottom: 0; right: 0; border-width: 0 2px 2px 0; }`
+
+
+
+
+`.panel-title {`
+
+`font-family: var(--font-head);`
+
+`font-size: 1.2rem;`
+
+`color: var(--neon-blue);`
+
+`margin-bottom: 1rem;`
+
+`display: flex;`
+
+`align-items: center;`
+
+`gap: 10px;`
+
+`letter-spacing: 2px;`
+
+`border-bottom: 1px solid rgba(0, 240, 255, 0.2);`
+
+`padding-bottom: 0.5rem;`
+
+`}`
+
+
+
+
+`/* Visualizer Canvas */`
+
+`#visualizerCanvas {`
+
+`width: 100%;`
+
+`height: 180px;`
+
+`background: rgba(2, 8, 20, 0.8);`
+
+`border: 1px solid rgba(0, 240, 255, 0.2);`
+
+`border-radius: 4px;`
+
+`margin-bottom: 1rem;`
+
+`}`
+
+
+
+
+`/* Frequency Controls */`
+
+`.freq-grid {`
+
+`display: grid;`
+
+`grid-template-columns: repeat(2, 1fr);`
+
+`gap: 10px;`
+
+`margin-top: 1rem;`
+
+`}`
+
+
+
+
+`.hud-btn {`
+
+`background: rgba(0, 240, 255, 0.05);`
+
+`border: 1px solid var(--neon-blue);`
+
+`color: var(--neon-blue);`
+
+`padding: 0.75rem 1rem;`
+
+`font-family: var(--font-head);`
+
+`font-size: 0.85rem;`
+
+`letter-spacing: 1.5px;`
+
+`cursor: pointer;`
+
+`transition: all 0.2s ease;`
+
+`text-transform: uppercase;`
+
+`}`
+
+
+
+
+`.hud-btn:hover, .hud-btn.active {`
+
+`background: var(--neon-blue);`
+
+`color: #000;`
+
+`box-shadow: 0 0 15px var(--neon-blue);`
+
+`}`
+
+
+
+
+`/* Embed Sections */`
+
+`.media-frame {`
+
+`width: 100%;`
+
+`height: 280px;`
+
+`border: none;`
+
+`border-radius: 6px;`
+
+`background: #000;`
+
+`}`
+
+
+
+
+`/* Log Terminal */`
+
+`.terminal-log {`
+
+`font-family: var(--font-code);`
+
+`font-size: 0.85rem;`
+
+`color: #7dd3fc;`
+
+`background: rgba(2, 6, 16, 0.9);`
+
+`padding: 1rem;`
+
+`height: 140px;`
+
+`overflow-y: auto;`
+
+`border: 1px solid rgba(0, 240, 255, 0.2);`
+
+`border-radius: 4px;`
+
+`line-height: 1.6;`
+
+`}`
+
+
+
+`.log-entry { margin-bottom: 4px; }`
+
+`.log-tag { color: var(--neon-blue); }`
+
+
+
+
+`footer {`
+
+`position: relative;`
+
+`z-index: 10;`
+
+`text-align: center;`
+
+`padding: 2rem;`
+
+`font-family: var(--font-code);`
+
+`font-size: 0.8rem;`
+
+`color: rgba(0, 240, 255, 0.6);`
+
+`border-top: 1px solid var(--border-glow);`
+
+`margin-top: 3rem;`
+
+`}`
+
+`</style>`
+
+`</head>`
+
+`<body>`
+
+
+
+
+`<div class="arc-reactor-bg"></div>`
+
+
+
+
+`<header>`
+
+`<div class="hud-status-bar">`
+
+`<span>SYS.VER // J.A.R.V.I.S. 4.02</span>`
+
+`<span>STATUS // ONLINE</span>`
+
+`<span>FREQ // 432.00 Hz</span>`
+
+`</div>`
+
+`<h1 class="system-title">Music Therapy Interactive</h1>`
+
+`<p class="system-subtitle">NEURAL FREQUENCY RESONANCE & AUDIO MODULATION MATRIX</p>`
+
+`</header>`
+
+
+
+
+`<main class="container">`
+
+
+
+
+`<!-- Panel 1: Sound Generator & Audio Visualizer -->`
+
+`<section class="hud-panel">`
+
+`<h2 class="panel-title"><span>🔊</span> AUDIO FREQUENCY GENERATOR</h2>`
+
+`<canvas id="visualizerCanvas"></canvas>`
+
+
+
+
+`<div class="freq-grid">`
+
+`<button class="hud-btn active" onclick="setFrequency(432, 'Alpha Relaxation')">432 Hz // Alpha</button>`
+
+`<button class="hud-btn" onclick="setFrequency(528, 'DNA Repair')">528 Hz // Transformation</button>`
+
+`<button class="hud-btn" onclick="setFrequency(639, 'Harmonic Focus')">639 Hz // Harmony</button>`
+
+`<button class="hud-btn" onclick="toggleTone()" id="toneToggleBtn">▶ START FREQUENCY</button>`
+
+`</div>`
+
+`</section>`
+
+
+
+
+`<!-- Panel 2: Live Diagnostic Log -->`
+
+`<section class="hud-panel">`
+
+`<h2 class="panel-title"><span>📊</span> J.A.R.V.I.S. TELEMETRY & LOGS</h2>`
+
+`<div class="terminal-log" id="terminalLog">`
+
+`<div class="log-entry"><span class="log-tag">[SYSTEM]</span> Initializing Stark Industries Sound Suite...</div>`
+
+`<div class="log-entry"><span class="log-tag">[AUDIO]</span> Web Audio Engine Ready.</div>`
+
+`<div class="log-entry"><span class="log-tag">[STATUS]</span> Awaiting Neural Resonance Protocol...</div>`
+
+`</div>`
+
+`</section>`
+
+
+
+
+`<!-- Panel 3: YouTube Interactive Stream -->`
+
+`<section class="hud-panel">`
+
+`<h2 class="panel-title"><span>📺</span> VISUAL THERAPY STREAM (YOUTUBE)</h2>`
+
+`<iframe class="media-frame"`
+
+`src="https://www.youtube-nocookie.com/embed/videoseries?list=PL4fGSI1pDJn6O1L0bUX63A2f3s4O1YQeQ"`
+
+`title="Music Therapy YouTube Stream"`
+
+`allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"`
+
+`allowfullscreen>`
+
+`</iframe>`
+
+`</section>`
+
+
+
+
+`<!-- Panel 4: Spotify Resonance Audio Player -->`
+
+`<section class="hud-panel">`
+
+`<h2 class="panel-title"><span>🎵</span> SPOTIFY THERAPY PLAYLIST</h2>`
+
+`<iframe class="media-frame"`
+
+`src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXe9g312nhL2?utm_source=generator&theme=0"`
+
+`allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"`
+
+`loading="lazy">`
+
+`</iframe>`
+
+`</section>`
+
+
+
+
+`</main>`
+
+
+
+
+`<footer>`
+
+`STARK INDUSTRIES // MUSIC THERAPY INTERACTIVE HUD // DEPLOYED VIA GITHUB PAGES`
+
+`</footer>`
+
+
+
+
+`<script>`
+
+`// Web Audio API Synthesizer & Visualizer`
+
+`let audioCtx;`
+
+`let oscillator;`
+
+`let isPlaying = false;`
+
+`let currentFreq = 432;`
+
+
+
+
+`const canvas = document.getElementById('visualizerCanvas');`
+
+`const canvasCtx = canvas.getContext('2d');`
+
+`canvas.width = canvas.offsetWidth;`
+
+`canvas.height = canvas.offsetHeight;`
+
+
+
+
+`function logMessage(tag, message) {`
+
+`const logBox = document.getElementById('terminalLog');`
+
+`const entry = document.createElement('div');`
+
+`entry.className = 'log-entry';`
+
+`entry.innerHTML = `<span class="log-tag">[${tag}]</span> ${message}`;`
+
+`logBox.appendChild(entry);`
+
+`logBox.scrollTop = logBox.scrollHeight;`
+
+`}`
+
+
+
+
+`function initAudio() {`
+
+`if (!audioCtx) {`
+
+`audioCtx = new (window.AudioContext || window.webkitAudioContext)();`
+
+`}`
+
+`}`
+
+
+
+
+`function toggleTone() {`
+
+`initAudio();`
+
+`const btn = document.getElementById('toneToggleBtn');`
+
+
+
+
+`if (isPlaying) {`
+
+`oscillator.stop();`
+
+`isPlaying = false;`
+
+`btn.innerText = "▶ START FREQUENCY";`
+
+`logMessage('AUDIO', 'Frequency tone generator stopped.');`
+
+`} else {`
+
+`oscillator = audioCtx.createOscillator();`
+
+`const gainNode = audioCtx.createGain();`
+
+
+
+
+`oscillator.type = 'sine';`
+
+`oscillator.frequency.setValueAtTime(currentFreq, audioCtx.currentTime);`
+
+`gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime); // Safe volume`
+
+
+
+
+`oscillator.connect(gainNode);`
+
+`gainNode.connect(audioCtx.destination);`
+
+
+
+
+`oscillator.start();`
+
+`isPlaying = true;`
+
+`btn.innerText = "⏹ STOP FREQUENCY";`
+
+`logMessage('AUDIO', `Broadcasting frequency: ${currentFreq} Hz`);`
+
+`}`
+
+`}`
+
+
+
+
+`function setFrequency(freq, label) {`
+
+`currentFreq = freq;`
+
+`logMessage('FREQ', `Switched mode to ${label} (${freq} Hz)`);`
+
+`if (isPlaying && oscillator) {`
+
+`oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);`
+
+`}`
+
+`}`
+
+
+
+
+`// Animated Visualizer Simulation`
+
+`let phase = 0;`
+
+`function drawVisualizer() {`
+
+`requestAnimationFrame(drawVisualizer);`
+
+`canvasCtx.fillStyle = 'rgba(2, 8, 20, 0.3)';`
+
+`canvasCtx.fillRect(0, 0, canvas.width, canvas.height);`
+
+
+
+
+`canvasCtx.lineWidth = 2;`
+
+`canvasCtx.strokeStyle = '#00f0ff';`
+
+`canvasCtx.beginPath();`
+
+
+
+
+`const sliceWidth = canvas.width / 50;`
+
+`let x = 0;`
+
+
+
+
+`for (let i = 0; i < 50; i++) {`
+
+`const amp = isPlaying ? 25 : 5;`
+
+`const y = (canvas.height / 2) + Math.sin(i * 0.3 + phase) * amp;`
+
+
+
+
+`if (i === 0) canvasCtx.moveTo(x, y);`
+
+`else canvasCtx.lineTo(x, y);`
+
+
+
+
+`x += sliceWidth;`
+
+`}`
+
+
+
+
+`canvasCtx.stroke();`
+
+`phase += isPlaying ? 0.15 : 0.03;`
+
+`}`
+
+
+
+
+`drawVisualizer();`
+
+`</script>`
+
+`</body>`
+
+`</html>`
