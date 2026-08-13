@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="evidence.css">
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -26,7 +27,7 @@
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
     <nav id="primary-nav" aria-label="Primary navigation">
-      <a href="#mission">Mission</a><a href="#heroes">Team</a><a href="#services">Services</a><a href="#training">Training</a><a href="#contact">Connect</a>
+      <a href="#mission">Mission</a><a href="#heroes">Team</a><a href="#services">Services</a><a href="#evidence">Wakanda Files</a><a href="#training">Training</a><a href="#contact">Connect</a>
     </nav>
     <a class="header-cta" href="#contact">Enter our lane</a>
   </header>
@@ -83,6 +84,36 @@
         </article>
       </div>
       <p class="source-note">Jax and Edna are Kingsman’s creative AI characters. Artwork is presented as original Kingsman project material.</p>
+    </section>
+
+    <section id="evidence" class="evidence section">
+      <div class="evidence-head reveal">
+        <div><p class="eyebrow">Wakanda Evidence Division</p><h2>EVERY CLAIM<br><span>LEAVES A TRACE.</span></h2></div>
+        <div class="classification-seal"><b>PUBLIC RELEASE</b><span>WAKANDA // CREATIVE INTELLIGENCE</span><small>CASE DESK 7535</small></div>
+      </div>
+      <div class="classification-tabs reveal" role="tablist" aria-label="Evidence desk classification views">
+        <button id="tab-public" class="active" type="button" role="tab" aria-selected="true" aria-controls="panel-public" data-evidence-tab="public"><span>01</span> UNCLASSIFIED // PUBLIC ACCESS</button>
+        <button id="tab-wakanda" type="button" role="tab" aria-selected="false" aria-controls="panel-wakanda" data-evidence-tab="wakanda"><span>02</span> WAKANDA // CREATIVE CLASSIFIED</button>
+      </div>
+      <div id="panel-public" class="evidence-panel active" role="tabpanel" aria-labelledby="tab-public" data-evidence-panel="public">
+        <div class="case-lead reveal"><p class="case-code">PUBLIC CASE FILE // ACCESS GRANTED</p><h3>THE DOOR STAYS OPEN.</h3><p>This desk translates complex technology, training, media, and business systems into evidence-backed next steps. Residents, veterans, creators, agencies, and organizations enter through the same public network.</p></div>
+        <div class="forensic-grid">
+          <article class="forensic-card reveal"><b>EXHIBIT A</b><span>TECHNOLOGY</span><h3>Digital Readiness</h3><p>Devices, cloud systems, cybersecurity awareness, accessible instruction, and practical AI operations.</p><small>STATUS // PUBLIC-READY</small></article>
+          <article class="forensic-card reveal"><b>EXHIBIT B</b><span>TRAINING</span><h3>M.E.N.U.</h3><p>Technical skill. Creative ownership. Ethical business. Elite presentation with a public-access mission.</p><small>STATUS // ENROLLMENT LANE</small></article>
+          <article class="forensic-card reveal"><b>EXHIBIT C</b><span>MEDIA</span><h3>Living Case Files</h3><p>Documented chronology, podcasts, music, training episodes, and responsible AI-assisted storytelling.</p><small>STATUS // SOURCE REVIEW</small></article>
+        </div>
+      </div>
+      <div id="panel-wakanda" class="evidence-panel" role="tabpanel" aria-labelledby="tab-wakanda" data-evidence-panel="wakanda" hidden>
+        <div class="case-lead"><p class="case-code">CREATIVE COMMAND FILE // PUBLICLY VIEWABLE</p><h3>THREE TRACKS. ONE UNIVERSE.</h3><p>The classified treatment is a cinematic production device: a deeper look at how Kingsman stories move from raw evidence to finished episodes. Nothing displayed here is government-classified information.</p></div>
+        <div class="track-grid">
+          <article><strong>TRACK 01</strong><h3>REAL // LIVE ACTION</h3><p>King Joseph and Consigliere B.G. lead M.E.N.U. missions with veteran discipline, executive confidence, and warm protective authority.</p><i>35MM CINEMA // BLACK + GOLD // HUMAN COMMAND</i></article>
+          <article><strong>TRACK 02</strong><h3>ANIME // TRAINING</h3><p>High-energy animated missions turn technical lessons into precise, memorable visual training modules.</p><i>CEL-SHADED // GOLD CIRCUITS // BLOCKBUSTER PACE</i></article>
+          <article><strong>TRACK 03</strong><h3>INTELLIGENCE DESK</h3><p>Jax finds the signal. Edna gives the mission form. Chantel May ###999### supports organized, respectful, non-clinical dialogue.</p><i>CYAN DATA // OPERATIONAL CLARITY // AI SUPPORT</i></article>
+        </div>
+        <div class="episode-spec"><span>MASTER FORMAT</span><b>10:00</b><p>Twenty 30-second scenes. Exact dialogue in braces. Direction in parentheses. Sound in angle brackets. One continuous mission file.</p></div>
+      </div>
+      <div class="chain reveal" aria-label="Kingsman evidence review sequence"><p class="eyebrow">Forensic workflow</p><ol><li><b>01</b><span>INGEST</span><small>Preserve the original</small></li><li><b>02</b><span>AUTHENTICATE</span><small>Verify the source</small></li><li><b>03</b><span>SEPARATE</span><small>Fact, statement, inference</small></li><li><b>04</b><span>RECONSTRUCT</span><small>Build the timeline</small></li><li><b>05</b><span>RELEASE</span><small>Publish with context</small></li></ol></div>
+      <p class="classification-note">“Wakanda,” “classified,” “evidence division,” and case-file language are Kingsman creative-production labels. They do not indicate government classification, law-enforcement authority, forensic certification, or official partnership.</p>
     </section>
 
     <section id="services" class="services section">

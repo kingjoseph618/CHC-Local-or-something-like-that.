@@ -22,3 +22,19 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+const evidenceTabs = document.querySelectorAll('[data-evidence-tab]');
+const evidencePanels = document.querySelectorAll('[data-evidence-panel]');
+evidenceTabs.forEach(tab => tab.addEventListener('click', () => {
+  const target = tab.dataset.evidenceTab;
+  evidenceTabs.forEach(item => {
+    const active = item === tab;
+    item.classList.toggle('active', active);
+    item.setAttribute('aria-selected', String(active));
+  });
+  evidencePanels.forEach(panel => {
+    const active = panel.dataset.evidencePanel === target;
+    panel.hidden = !active;
+    panel.classList.toggle('active', active);
+  });
+}));
