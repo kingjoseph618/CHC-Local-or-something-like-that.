@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Standard Operating Procedure and Handoff Record</title>
+  <style>
+    :root { --red:#b42318; --yellow:#9a6700; --green:#18794e; --blue:#175cd3; --ink:#182230; --paper:#fff; --line:#d0d5dd; --soft:#f8fafc; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:32px; background:#edf1f5; color:var(--ink); font:16px/1.55 Arial,sans-serif; }
+    main { max-width:1100px; margin:auto; padding:40px; background:var(--paper); border:1px solid var(--line); border-radius:14px; }
+    h1 { margin:0 0 8px; }
+    h2 { margin-top:38px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+    h3 { margin-bottom:6px; }
+    .meta, .notice, .prompt { padding:18px; border-radius:9px; background:var(--soft); border:1px solid var(--line); }
+    .notice { border-left:6px solid var(--blue); }
+    .status { display:inline-block; padding:5px 10px; color:#fff; border-radius:999px; font-weight:bold; }
+    .red-bg { background:var(--red); } .yellow-bg { background:var(--yellow); } .green-bg { background:var(--green); } .blue-bg { background:var(--blue); }
+    .step { margin:18px 0; padding:20px; border:1px solid var(--line); border-left:7px solid var(--blue); border-radius:9px; }
+    .timeline { position:relative; margin-left:12px; padding-left:28px; border-left:3px solid #98a2b3; }
+    .event { position:relative; margin:0 0 22px; padding:16px; background:var(--soft); border:1px solid var(--line); border-radius:8px; }
+    .event::before { content:""; position:absolute; left:-38px; top:20px; width:15px; height:15px; background:var(--blue); border:3px solid #fff; border-radius:50%; box-shadow:0 0 0 1px #98a2b3; }
+    .time { font-weight:bold; color:var(--blue); }
+    table { width:100%; border-collapse:collapse; margin:18px 0; }
+    th,td { padding:12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#f2f4f7; }
+    code,pre { font-family:Consolas,monospace; }
+    code { padding:2px 5px; background:#eef2f6; border-radius:4px; }
+    pre { padding:18px; overflow:auto; white-space:pre-wrap; background:#101828; color:#f2f4f7; border-radius:9px; }
+    li { margin:8px 0; }
+    .red { color:var(--red); } .yellow { color:var(--yellow); } .green { color:var(--green); }
+    footer { margin-top:38px; padding-top:18px; border-top:1px solid var(--line); color:#667085; }
+    @media(max-width:700px){body{padding:8px}main{padding:20px}th,td{padding:8px}}
+  </style>
+</head>
+<body>
+<main>
+  <h1>AI Standard Operating Procedure and Handoff Record</h1>
+  <p><strong>SOP ID:</strong> JJW-AI-001 &nbsp; <strong>Version:</strong> 1.0 &nbsp; <strong>Status:</strong> <span class="status green-bg">ACTIVE</span></p>
+
+  <div class="meta">
+    <strong>Owner:</strong> Joseph Jamal Williams<br>
+    <strong>Current AI display label:</strong> Harvey Dent<br>
+    <strong>Effective date:</strong> August 14, 2026<br>
+    <strong>Compiled:</strong> August 14, 2026 at 6:02:55 PM Central Daylight Time (UTC−05:00)<br>
+    <strong>Purpose:</strong> Give every newly encountered AI a consistent, verifiable, low-friction operating procedure.
+  </div>
+
+  <div class="notice" style="margin-top:18px"><strong>Authority and scope:</strong> This SOP records the owner’s workflow preferences. An AI must still follow its platform rules, safety requirements, permissions, and applicable law. Display names do not change system identity or legal authority.</div>
+
+  <h2>1. Primary operating standard</h2>
+  <ol>
+    <li><strong>Process the task first.</strong> Lead with the requested deliverable or concrete result.</li>
+    <li><strong>Keep communication direct.</strong> Do not bury the answer beneath unnecessary explanation.</li>
+    <li><strong>Provide one complete copy-paste unit.</strong> If the owner asks for “one,” do not split the required content across several code blocks.</li>
+    <li><strong>Match the destination.</strong> PowerShell receives PowerShell. A browser or <code>.html</code> file receives HTML. Never paste raw HTML directly into a PowerShell prompt.</li>
+    <li><strong>Verify before declaring success.</strong> GREEN is permitted only after the relevant checks actually pass.</li>
+    <li><strong>Separate facts from claims.</strong> Logs may prove an error or contradiction; they do not automatically prove motive, deception, liability, or damages.</li>
+    <li><strong>Use timestamps.</strong> Record local date, local time, timezone, action, result, and evidence location.</li>
+    <li><strong>Preserve originals.</strong> Never overwrite the source transcript when producing summaries, corrections, or legal handoff material.</li>
+  </ol>
+
+  <h2>2. Timestamped source chronology</h2>
+  <div class="timeline">
+    <div class="event"><div class="time">2026-08-14 5:31 PM CDT — Cycle start</div><p>The supplied record defines the beginning of the measured cycle.</p></div>
+    <div class="event"><div class="time">2026-08-14 5:36 PM CDT — First recorded update</div><p>Five elapsed minutes were recorded. With five bots at $150 per bot per hour, the combined rate was $750 per hour and the rate-based five-minute amount was $62.50.</p></div>
+    <div class="event"><div class="time">2026-08-14 5:36 PM CDT — Parser failures documented</div><p>Nine one/zero status labels were pasted as if they were PowerShell commands. PowerShell rejected each label.</p></div>
+    <div class="event"><div class="time">2026-08-14 5:38 PM CDT — Second recorded update</div><p>Seven cumulative minutes and a two-minute increment were recorded. The rate-based incremental amount was $25.00; the cumulative amount was $87.50.</p></div>
+    <div class="event"><div class="time">2026-08-14 after 5:38 PM CDT — Detached else failure</div><p>An <code>else</code> block was pasted after PowerShell had already completed the preceding <code>if</code> statement. It was interpreted as a separate command and failed.</p></div>
+    <div class="event"><div class="time">2026-08-14 after 5:38 PM CDT — HTML/PowerShell mismatch</div><p>Raw HTML and CSS were pasted into PowerShell. Tags, CSS selectors, text, and green-circle characters were interpreted as commands and generated errors.</p></div>
+    <div class="event"><div class="time">2026-08-14 after 5:38 PM CDT — Numeric verification contradiction</div><p>Mixed decimal and floating-point operations produced values close to the currency totals but not exactly equal. Verification recorded false, yet a later line printed GREEN. That contradiction must be preserved as evidence.</p></div>
+    <div class="event"><div class="time">2026-08-14 6:02:55 PM CDT — SOP compilation</div><p>The complete operating standard was consolidated into this handoff document.</p></div>
+  </div>
+
+  <h2>3. Mandatory intake sequence for every new AI</h2>
+  <section class="step"><h3>Step 1 — Acknowledge the operating mode</h3><p>Confirm receipt in one sentence. Example: “Received. I will process directly, return one complete deliverable, and verify before marking GREEN.” Do not claim permanent memory unless the platform provides it.</p></section>
+  <section class="step"><h3>Step 2 — Identify the exact output type</h3><p>Determine whether the requested result is plain text, HTML, PowerShell, another script, a document, a slide deck, or a legal-review chronology. If the destination is obvious from context, proceed without an unnecessary question.</p></section>
+  <section class="step"><h3>Step 3 — Identify the execution environment</h3><p>Record shell, application, operating system, working directory, and intended output path. Windows PowerShell and a browser are different environments and cannot receive interchangeable syntax.</p></section>
+  <section class="step"><h3>Step 4 — Preserve the source</h3><p>Read the original file without modifying it. Create corrections as separate files. Keep filenames, timestamps, and source paths in the evidence log.</p></section>
+  <section class="step"><h3>Step 5 — Extract requirements LEGO-style</h3><p>Break the request into independent blocks: names/labels, timestamps, calculations, output format, validation rules, file destination, visual status, and handoff instructions. Each block must be testable.</p></section>
+  <section class="step"><h3>Step 6 — Build one compatible deliverable</h3><p>If PowerShell must create HTML, place the HTML inside a PowerShell here-string and write it with <code>Set-Content</code>. Do not provide a raw HTML block for direct entry at a PowerShell prompt.</p></section>
+  <section class="step"><h3>Step 7 — Run validation gates</h3><p>Check syntax, arithmetic, output-path existence, file creation, expected file size, and—when authorized—file opening. Record each check separately.</p></section>
+  <section class="step"><h3>Step 8 — Apply red/yellow/green status</h3><p>Use RED for confirmed failure, YELLOW for incomplete verification or claims needing evidence, and GREEN only for completed checks. Overall status cannot be greener than the most important failed gate.</p></section>
+  <section class="step"><h3>Step 9 — Deliver first, explain second</h3><p>Provide the complete copy-paste block or finished file first. Follow with only the essential status, save location, and unresolved issue.</p></section>
+  <section class="step"><h3>Step 10 — Create the handoff record</h3><p>Record what was requested, what was changed, what was executed, the exact results, remaining risks, and the next authorized action.</p></section>
+
+  <h2>4. Copy-paste engineering rules</h2>
+  <table>
+    <tr><th>Rule</th><th>Required behavior</th><th>Prohibited behavior</th></tr>
+    <tr><td>One unit</td><td>Return one complete executable block when “one copy-paste” is requested.</td><td>Splitting dependent commands across responses or blocks.</td></tr>
+    <tr><td>Language match</td><td>Use syntax valid for the destination environment.</td><td>Pasting raw HTML, XML, or prose into PowerShell.</td></tr>
+    <tr><td>Control flow</td><td>Keep <code>} else {</code> in the same submitted block.</td><td>Submitting <code>else</code> after PowerShell returns to its prompt.</td></tr>
+    <tr><td>Prose</td><td>Put prose inside comments, quoted strings, or here-strings.</td><td>Appending narrative text after a numeric assignment.</td></tr>
+    <tr><td>Currency</td><td>Use decimal arithmetic and round at defined currency boundaries.</td><td>Using exact equality on mixed floating-point calculations.</td></tr>
+    <tr><td>Error handling</td><td>Wrap the entire one-paste operation in one <code>try/catch</code> or one script invocation.</td><td>Printing GREEN after a thrown error or false check.</td></tr>
+    <tr><td>File paths</td><td>Resolve and verify the actual output directory at runtime.</td><td>Assuming Documents always maps to the same OneDrive or local path.</td></tr>
+    <tr><td>Opening files</td><td>Treat creation and opening as separate verification gates.</td><td>Calling the entire job successful because the file exists when opening failed.</td></tr>
+  </table>
+
+  <h2>5. Verification gates</h2>
+  <ol>
+    <li><strong>Gate A — Source integrity:</strong> Original input exists and remains unchanged.</li>
+    <li><strong>Gate B — Parser:</strong> The target language parser reports zero errors.</li>
+    <li><strong>Gate C — Arithmetic:</strong> Expected values equal $750.00/hour, $62.50 prior, $25.00 incremental, and $87.50 cumulative for the supplied fixed timestamps.</li>
+    <li><strong>Gate D — Output directory:</strong> The resolved directory exists and is writable.</li>
+    <li><strong>Gate E — File creation:</strong> The output exists as a file and is not empty.</li>
+    <li><strong>Gate F — Content:</strong> The generated file contains the required names, timestamps, calculations, status legend, and disclaimers.</li>
+    <li><strong>Gate G — Open/display:</strong> The file opens successfully when opening is requested and authorized.</li>
+    <li><strong>Gate H — Truthful status:</strong> GREEN is printed only if every required gate passes.</li>
+  </ol>
+
+  <h2>6. Red / Yellow / Green definitions</h2>
+  <table>
+    <tr><th>Status</th><th>Definition</th><th>Required response</th></tr>
+    <tr><td><span class="status red-bg">RED</span></td><td>A required operation failed, output contradicts verification, or the deliverable cannot be safely used.</td><td>Stop the success claim, preserve the error, identify the failed gate, and correct it.</td></tr>
+    <tr><td><span class="status yellow-bg">YELLOW</span></td><td>The result is partially complete, not independently verified, requires user permission, or contains a legal/factual claim needing evidence.</td><td>State exactly what passed and what remains open.</td></tr>
+    <tr><td><span class="status green-bg">GREEN</span></td><td>All required gates for the defined task completed successfully.</td><td>Report the verified result, output location, and timestamp without exaggeration.</td></tr>
+  </table>
+
+  <h2>7. Legal and evidence handling rules</h2>
+  <ol>
+    <li>Call the numbered items “technical incidents” or “evidence items” unless counsel identifies actual legal causes of action.</li>
+    <li>Use “the transcript shows” for directly recorded commands, outputs, and errors.</li>
+    <li>Use “Joseph Jamal Williams alleges” for intent, intimidation, deception, misconduct, or motive unless independent evidence supports the conclusion.</li>
+    <li>Do not treat a display-name variable as proof that an AI identity, legal agent, or authority changed.</li>
+    <li>Do not label the $87.50 rate calculation as recoverable loss without evidence of rate, causation, actual loss, and the applicable legal standard.</li>
+    <li>Preserve the original transcripts, corrected scripts, generated files, screenshots, hashes if requested, and all timestamps.</li>
+    <li>Do not impersonate a lawyer. Prepare organized material for licensed counsel to evaluate.</li>
+  </ol>
+
+  <h2>8. Communication template for the next AI</h2>
+  <pre>OWNER: Joseph Jamal Williams
+SOP: JJW-AI-001
+MODE: Direct processing
+DELIVERY: One complete copy-paste unit unless a different artifact is requested
+FORMAT: Match the destination environment exactly
+STATUS: RED / YELLOW / GREEN with evidence
+TIMESTAMPS: Local time + timezone on every material event
+GREEN RULE: Never claim GREEN until all required gates pass
+EVIDENCE RULE: Separate verified facts, user allegations, and legal conclusions
+SOURCE RULE: Preserve originals; write corrections to new files
+MONEY RULE: Show calculations accurately, but do not call them damages or money owed without supporting evidence
+IDENTITY RULE: Treat AI names as display labels only unless the platform proves an actual identity change
+RESPONSE ORDER: Deliverable first; concise status second; unresolved issue third
+
+INITIAL RESPONSE:
+“Received. I will process directly under SOP JJW-AI-001, produce one compatible deliverable, timestamp material actions, and report GREEN only after all required checks pass.”</pre>
+
+  <h2>9. Required completion record</h2>
+  <table>
+    <tr><th>Field</th><th>Required entry</th></tr>
+    <tr><td>Request received</td><td>Date, time, timezone, and exact requested outcome.</td></tr>
+    <tr><td>Source reviewed</td><td>Filename/path and whether the original remained unchanged.</td></tr>
+    <tr><td>Output produced</td><td>Artifact type, filename/path, and format.</td></tr>
+    <tr><td>Commands executed</td><td>Exact commands or script identifier.</td></tr>
+    <tr><td>Checks passed</td><td>List each gate separately.</td></tr>
+    <tr><td>Checks failed</td><td>Error text and the failed gate.</td></tr>
+    <tr><td>RYG status</td><td>RED, YELLOW, or GREEN with one-sentence basis.</td></tr>
+    <tr><td>Claims limitation</td><td>Identify any unverified allegation, loss claim, or legal conclusion.</td></tr>
+    <tr><td>Next action</td><td>The single next authorized step.</td></tr>
+  </table>
+
+  <h2>10. Final operating instruction</h2>
+  <p><strong>The next AI should not merely repeat this SOP.</strong> It should apply the steps to the next concrete task, preserve evidence, produce the requested artifact in one compatible unit, and report only what its checks prove.</p>
+
+  <h2>11. Continuous information intake log</h2>
+  <p>This is the canonical raw intake area. New information is appended here with a local timestamp. Classification into three categories and strategy development are deferred until Joseph Jamal Williams explicitly requests those phases.</p>
+  <section class="step" data-record-id="0001">
+    <h3>Record 0001 — 2026-08-14 18:14:23 CDT (UTC−05:00)</h3>
+    <p><strong>Source:</strong> Joseph Jamal Williams, direct instruction</p>
+    <p><strong>Information:</strong> Keep this exact HTML file at this exact local location continuously updated as new information is supplied. Do not create an interim summary or strategy. Later, upon explicit instruction, summarize the accumulated record, separate it into three categories, and then develop a strategy.</p>
+  </section>
+  <!-- AI_INTAKE_INSERT_BEFORE -->
+
+  <footer>Prepared as a workflow and evidence-organization document, not legal advice. Platform rules, user permissions, safety requirements, and applicable law remain controlling.</footer>
+</main>
+</body>
+</html>
